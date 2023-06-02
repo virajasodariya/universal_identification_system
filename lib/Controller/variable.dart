@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TextEditingControllerVariable extends GetxController {
+class VariableController extends GetxController {
   static final emailController = TextEditingController();
   static final passwordController = TextEditingController();
   static final mobileNumberController = TextEditingController();
@@ -15,6 +15,12 @@ class TextEditingControllerVariable extends GetxController {
   static final signatureController = TextEditingController();
   static final dateTimeController = TextEditingController();
   static final relationshipController = TextEditingController();
+
+  ///
+
+  static PageController controller = PageController();
+
+  ///
 
   @override
   void dispose() {

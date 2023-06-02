@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 CommonTextFormField(
                   keyboardType: TextInputType.emailAddress,
                   hintText: "Enter your email",
-                  controller: TextEditingControllerVariable.emailController,
+                  controller: VariableController.emailController,
                   validator: (value) {
                     final bool emailValid = RegExp(
                             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 CommonTextFormField(
                   keyboardType: TextInputType.number,
                   hintText: "Enter your password",
-                  controller: TextEditingControllerVariable.passwordController,
+                  controller: VariableController.passwordController,
                   validator: (value) {
                     return null;
                   },

@@ -7,7 +7,6 @@ import 'package:universal_identification_system/Constants/color_helper.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Controller/variable.dart';
 import 'package:universal_identification_system/Screen/HomeScreen/bottom_main.dart';
-import 'package:universal_identification_system/Screen/HomeScreen/home.dart';
 import 'package:universal_identification_system/Screen/Widget/elevated_button.dart';
 import 'package:universal_identification_system/Screen/Widget/text_field.dart';
 
@@ -83,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         SizedBox(height: 5.h),
         CommonTextFormField(
           keyboardType: TextInputType.name,
-          controller: TextEditingControllerVariable.nameController,
+          controller: VariableController.nameController,
           hintText: "Enter your name",
           validator: (value) {
             return null;
@@ -92,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           keyboardType: TextInputType.emailAddress,
-          controller: TextEditingControllerVariable.emailController,
+          controller: VariableController.emailController,
           hintText: "Enter your email",
           validator: (value) {
             return null;
@@ -101,7 +100,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           keyboardType: TextInputType.number,
-          controller: TextEditingControllerVariable.mobileNumberController,
+          controller: VariableController.mobileNumberController,
           hintText: "Enter your Phone Number",
           validator: (value) {
             return null;
@@ -110,7 +109,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           keyboardType: TextInputType.name,
-          controller: TextEditingControllerVariable.nameController,
+          controller: VariableController.nameController,
           hintText: "Enter your Location",
           validator: (value) {
             return null;

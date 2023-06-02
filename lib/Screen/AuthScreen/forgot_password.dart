@@ -68,7 +68,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             Center(
               child: CommonTextFormField(
                 hintText: "Enter your email",
-                controller: TextEditingControllerVariable.emailController,
+                controller: VariableController.emailController,
                 validator: (value) {
                   return null;
                 },
@@ -94,8 +94,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             Center(
               child: CommonTextFormField(
                 hintText: "Enter your mobile number",
-                controller:
-                    TextEditingControllerVariable.mobileNumberController,
+                controller: VariableController.mobileNumberController,
                 validator: (value) {
                   return null;
                 },

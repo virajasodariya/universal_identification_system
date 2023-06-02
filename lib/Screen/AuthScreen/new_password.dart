@@ -59,7 +59,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             Center(
               child: CommonTextFormField(
                 hintText: "Enter your password",
-                controller: TextEditingControllerVariable.passwordController,
+                controller: VariableController.passwordController,
                 validator: (value) {
                   return null;
                 },
@@ -70,7 +70,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             Center(
               child: CommonTextFormField(
                 hintText: "Enter your confirm password",
-                controller: TextEditingControllerVariable.passwordController,
+                controller: VariableController.passwordController,
                 validator: (value) {
                   return null;
                 },

@@ -30,7 +30,7 @@ class _FormPageTwoState extends State<FormPageTwo> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Printed",
-          controller: TextEditingControllerVariable.printedController,
+          controller: VariableController.printedController,
           validator: (value) {
             return null;
           },
@@ -39,7 +39,7 @@ class _FormPageTwoState extends State<FormPageTwo> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Signature",
-          controller: TextEditingControllerVariable.signatureController,
+          controller: VariableController.signatureController,
           validator: (value) {
             return null;
           },
@@ -48,7 +48,7 @@ class _FormPageTwoState extends State<FormPageTwo> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Date/Time",
-          controller: TextEditingControllerVariable.dateTimeController,
+          controller: VariableController.dateTimeController,
           validator: (value) {
             return null;
           },
@@ -66,7 +66,7 @@ class _FormPageTwoState extends State<FormPageTwo> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Printed",
-          controller: TextEditingControllerVariable.printedController,
+          controller: VariableController.printedController,
           validator: (value) {
             return null;
           },
@@ -75,7 +75,7 @@ class _FormPageTwoState extends State<FormPageTwo> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Signature",
-          controller: TextEditingControllerVariable.signatureController,
+          controller: VariableController.signatureController,
           validator: (value) {
             return null;
           },
@@ -84,7 +84,7 @@ class _FormPageTwoState extends State<FormPageTwo> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Date/Time",
-          controller: TextEditingControllerVariable.dateTimeController,
+          controller: VariableController.dateTimeController,
           validator: (value) {
             return null;
           },

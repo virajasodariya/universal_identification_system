@@ -6,7 +6,6 @@ import 'package:sizer/sizer.dart';
 import 'package:universal_identification_system/Constants/color_helper.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Screen/HomeScreen/bottom_main.dart';
-import 'package:universal_identification_system/Screen/HomeScreen/home.dart';
 
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({Key? key}) : super(key: key);
@@ -29,7 +28,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
             children: [
               IconButton(
                 onPressed: () {
-                  Get.to(() => const MainBottomNavScreen());
+                  Get.to(MainBottomNavScreen());
                 },
                 icon: Icon(
                   CupertinoIcons.back,

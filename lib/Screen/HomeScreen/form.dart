@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:universal_identification_system/Constants/color_helper.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
-import 'package:universal_identification_system/Screen/HomeScreen/bottom_main.dart';
+import 'package:universal_identification_system/Controller/variable.dart';
 import 'package:universal_identification_system/Screen/HomeScreen/form_page_one.dart';
 import 'package:universal_identification_system/Screen/HomeScreen/form_page_two.dart';
 import 'package:universal_identification_system/Screen/HomeScreen/form_page_three.dart';
@@ -25,7 +25,6 @@ class _FormScreenState extends State<FormScreen> {
   ];
 
   int selected = 0;
-  PageController controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ class _FormScreenState extends State<FormScreen> {
               children: [
                 IconButton(
                   onPressed: () {
-                    Get.to(() => const MainBottomNavScreen());
+                    Get.back();
                   },
                   icon: Icon(
                     CupertinoIcons.back,
@@ -90,7 +89,7 @@ class _FormScreenState extends State<FormScreen> {
               itemCount: 3,
               scrollDirection: Axis.horizontal,
               physics: const PageScrollPhysics(),
-              controller: controller,
+              controller: VariableController.controller,
               onPageChanged: (value) {
                 setState(() {
                   selected = value;

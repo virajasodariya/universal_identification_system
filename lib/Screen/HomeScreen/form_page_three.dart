@@ -32,7 +32,7 @@ class _FormPageThreeState extends State<FormPageThree> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Printed",
-          controller: TextEditingControllerVariable.printedController,
+          controller: VariableController.printedController,
           validator: (value) {
             return null;
           },
@@ -41,7 +41,7 @@ class _FormPageThreeState extends State<FormPageThree> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Relationship",
-          controller: TextEditingControllerVariable.relationshipController,
+          controller: VariableController.relationshipController,
           validator: (value) {
             return null;
           },
@@ -50,7 +50,7 @@ class _FormPageThreeState extends State<FormPageThree> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Signature",
-          controller: TextEditingControllerVariable.signatureController,
+          controller: VariableController.signatureController,
           validator: (value) {
             return null;
           },
@@ -59,7 +59,7 @@ class _FormPageThreeState extends State<FormPageThree> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Date/Time",
-          controller: TextEditingControllerVariable.dateTimeController,
+          controller: VariableController.dateTimeController,
           validator: (value) {
             return null;
           },
@@ -76,7 +76,7 @@ class _FormPageThreeState extends State<FormPageThree> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Printed",
-          controller: TextEditingControllerVariable.printedController,
+          controller: VariableController.printedController,
           validator: (value) {
             return null;
           },
@@ -85,7 +85,7 @@ class _FormPageThreeState extends State<FormPageThree> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Signature",
-          controller: TextEditingControllerVariable.signatureController,
+          controller: VariableController.signatureController,
           validator: (value) {
             return null;
           },
@@ -94,7 +94,7 @@ class _FormPageThreeState extends State<FormPageThree> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Date/Time",
-          controller: TextEditingControllerVariable.dateTimeController,
+          controller: VariableController.dateTimeController,
           validator: (value) {
             return null;
           },
@@ -111,7 +111,7 @@ class _FormPageThreeState extends State<FormPageThree> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "",
-          controller: TextEditingControllerVariable.nameController,
+          controller: VariableController.nameController,
           validator: (value) {
             return null;
           },

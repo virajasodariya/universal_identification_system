@@ -56,7 +56,7 @@ class _VerifyingNumberScreenState extends State<VerifyingNumberScreen> {
               padding: EdgeInsets.only(left: 5.w, top: 2.h, bottom: 3.h),
               child: Text(
                 "We sent an otp to your mobile number\n"
-                "${TextEditingControllerVariable.mobileNumberController.text}",
+                "${VariableController.mobileNumberController.text}",
                 style: FontTextStyle.kCloudyGrey14PolyW500,
               ),
             ),

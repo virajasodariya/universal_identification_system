@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Controller/variable.dart';
-import 'package:universal_identification_system/Screen/HomeScreen/form_page_two.dart';
 import 'package:universal_identification_system/Screen/Widget/elevated_button.dart';
 import 'package:universal_identification_system/Screen/Widget/text_field.dart';
 
@@ -22,7 +20,7 @@ class _FormPageOneState extends State<FormPageOne> {
       children: [
         CommonTextFormField(
           hintText: "Name of the Deceased",
-          controller: TextEditingControllerVariable.nameOfTheDeceasedController,
+          controller: VariableController.nameOfTheDeceasedController,
           validator: (value) {
             return null;
           },
@@ -31,7 +29,7 @@ class _FormPageOneState extends State<FormPageOne> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Date of Death",
-          controller: TextEditingControllerVariable.dateOfDeathController,
+          controller: VariableController.dateOfDeathController,
           validator: (value) {
             return null;
           },
@@ -40,7 +38,7 @@ class _FormPageOneState extends State<FormPageOne> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Place of Death",
-          controller: TextEditingControllerVariable.placeOFDeathController,
+          controller: VariableController.placeOFDeathController,
           validator: (value) {
             return null;
           },
@@ -49,8 +47,7 @@ class _FormPageOneState extends State<FormPageOne> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Number on the UIS Bracelet",
-          controller:
-              TextEditingControllerVariable.numberOnTheUISBraceletController,
+          controller: VariableController.numberOnTheUISBraceletController,
           validator: (value) {
             return null;
           },
@@ -59,7 +56,7 @@ class _FormPageOneState extends State<FormPageOne> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Date/Time Attached",
-          controller: TextEditingControllerVariable.dateTimeAttachedController,
+          controller: VariableController.dateTimeAttachedController,
           validator: (value) {
             return null;
           },
@@ -75,7 +72,7 @@ class _FormPageOneState extends State<FormPageOne> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Printed",
-          controller: TextEditingControllerVariable.printedController,
+          controller: VariableController.printedController,
           validator: (value) {
             return null;
           },
@@ -84,7 +81,7 @@ class _FormPageOneState extends State<FormPageOne> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           hintText: "Signature",
-          controller: TextEditingControllerVariable.signatureController,
+          controller: VariableController.signatureController,
           validator: (value) {
             return null;
           },
@@ -93,7 +90,12 @@ class _FormPageOneState extends State<FormPageOne> {
         Padding(
           padding: EdgeInsets.only(left: 65.w, top: 8.h),
           child: CommonElevatedSmallButton(
-            onPressed: () {},
+            onPressed: () {
+              VariableController.controller.nextPage(
+                duration: const Duration(seconds: 3),
+                curve: Curves.linear,
+              );
+            },
             text: "Next",
           ),
         ),
