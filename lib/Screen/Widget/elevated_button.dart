@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:universal_identification_system/Constants/color_helper.dart';
+import 'package:universal_identification_system/Constants/test_style.dart';
 
 ///
 class CommonElevatedButton extends StatefulWidget {
@@ -31,12 +32,7 @@ class _CommonElevatedButtonState extends State<CommonElevatedButton> {
       ),
       child: Text(
         widget.text,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 13.5.sp,
-          fontWeight: FontWeight.w500,
-          fontFamily: "Poly",
-        ),
+        style: FontTextStyle.kWhite13PolyW500,
       ),
     );
   }
@@ -72,11 +68,7 @@ class _CommonElevatedPerviousButtonState
       ),
       child: Text(
         "Pervious",
-        style: TextStyle(
-          color: ColorHelper.kMediumElectricBlue,
-          fontFamily: "Poly",
-          fontSize: 12.sp,
-        ),
+        style: FontTextStyle.kMediumElectricBlue12Poly,
       ),
     );
   }
@@ -109,11 +101,7 @@ class _CommonElevatedSmallButtonState extends State<CommonElevatedSmallButton> {
       ),
       child: Text(
         widget.text,
-        style: TextStyle(
-          color: Colors.white,
-          fontFamily: "Poly",
-          fontSize: 12.sp,
-        ),
+        style: FontTextStyle.kWhite12Poly,
       ),
     );
   }

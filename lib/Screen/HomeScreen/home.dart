@@ -47,12 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.only(left: 5.w, top: 3.h, bottom: 2.h),
           child: Text(
             "Notice",
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: "Poly",
-              fontWeight: FontWeight.w500,
-              fontSize: 12.sp,
-            ),
+            style: FontTextStyle.kBlack12PolyW500,
           ),
         ),
         Column(

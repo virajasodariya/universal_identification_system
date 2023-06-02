@@ -92,12 +92,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                             ),
                             Text(
                               "26-03-2021",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 9.5.sp,
-                                fontFamily: "Poly",
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: FontTextStyle.kBlack9PolyW500,
                             ),
                           ],
                         ),
@@ -115,11 +110,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       child: Center(
                         child: Text(
                           "View Details",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10.sp,
-                            fontFamily: "Poly",
-                          ),
+                          style: FontTextStyle.kWhite10Poly,
                         ),
                       ),
                     ),

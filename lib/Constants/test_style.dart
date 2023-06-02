@@ -58,4 +58,35 @@ class FontTextStyle {
     fontFamily: "Poly",
     fontWeight: FontWeight.w500,
   );
+  static TextStyle kMediumElectricBlue12Poly = TextStyle(
+    color: ColorHelper.kMediumElectricBlue,
+    fontSize: 12.sp,
+    fontFamily: "Poly",
+  );
+
+  static TextStyle kBlack9PolyW500 = TextStyle(
+    color: Colors.black,
+    fontSize: 9.5.sp,
+    fontFamily: "Poly",
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle kWhite10Poly = TextStyle(
+    color: Colors.white,
+    fontSize: 10.sp,
+    fontFamily: "Poly",
+  );
+
+  static TextStyle kWhite13PolyW500 = TextStyle(
+    color: Colors.white,
+    fontSize: 13.5.sp,
+    fontFamily: "Poly",
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle kWhite12Poly = TextStyle(
+    color: Colors.white,
+    fontSize: 12.sp,
+    fontFamily: "Poly",
+  );
 }

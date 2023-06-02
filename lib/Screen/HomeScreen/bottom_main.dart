@@ -21,6 +21,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
     const ProfileScreen(),
   ];
   int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +41,6 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
           SalomonBottomBarItem(
             icon: const Icon(Icons.home_outlined),
             title: const Text("Home"),
-            selectedColor: ColorHelper.kMediumElectricBlue,
           ),
 
           /// Likes

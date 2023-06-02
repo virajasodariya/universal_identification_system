@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 import 'package:universal_identification_system/Constants/color_helper.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Controller/variable.dart';
+import 'package:universal_identification_system/Screen/HomeScreen/death_certificate.dart';
 import 'package:universal_identification_system/Screen/HomeScreen/form_page_one.dart';
 import 'package:universal_identification_system/Screen/HomeScreen/form_page_two.dart';
 import 'package:universal_identification_system/Screen/HomeScreen/form_page_three.dart';
@@ -51,16 +52,21 @@ class _FormScreenState extends State<FormScreen> {
                   style: FontTextStyle.kBlack15PolyW500,
                 ),
                 selected == 2
-                    ? Container(
-                        height: 4.5.h,
-                        width: 4.5.h,
-                        decoration: BoxDecoration(
-                          color: ColorHelper.kMediumElectricBlue,
-                          borderRadius: BorderRadius.circular(1.h),
-                        ),
-                        child: SvgPicture.asset(
-                          "assets/icons/print_icon.svg",
-                          fit: BoxFit.scaleDown,
+                    ? GestureDetector(
+                        onTap: () {
+                          Get.to(() => const DeathCertificate());
+                        },
+                        child: Container(
+                          height: 4.5.h,
+                          width: 4.5.h,
+                          decoration: BoxDecoration(
+                            color: ColorHelper.kMediumElectricBlue,
+                            borderRadius: BorderRadius.circular(1.h),
+                          ),
+                          child: SvgPicture.asset(
+                            "assets/icons/print_icon.svg",
+                            fit: BoxFit.scaleDown,
+                          ),
                         ),
                       )
                     : SizedBox(width: 25.sp),
