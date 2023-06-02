@@ -6,7 +6,7 @@ import 'package:universal_identification_system/Controller/variable.dart';
 import 'package:universal_identification_system/Screen/AuthScreen/Widget/image_uis.dart';
 import 'package:universal_identification_system/Screen/AuthScreen/forgot_password.dart';
 import 'package:universal_identification_system/Screen/AuthScreen/sign_up.dart';
-import 'package:universal_identification_system/Screen/HomeScreen/bottom_main.dart';
+import 'package:universal_identification_system/Screen/HomeScreen/bottom_bar.dart';
 import 'package:universal_identification_system/Screen/Widget/elevated_button.dart';
 import 'package:universal_identification_system/Screen/Widget/text_button.dart';
 import 'package:universal_identification_system/Screen/Widget/text_field.dart';
@@ -43,22 +43,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 2.h),
                 CommonTextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  hintText: "Enter your email",
-                  controller: VariableController.emailController,
-                  validator: (value) {
-                    final bool emailValid = RegExp(
-                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                        .hasMatch(value);
-                    if (value.isEmpty) {
-                    } else {}
-                  },
-                ),
+                    keyboardType: TextInputType.emailAddress,
+                    hintText: "Enter your email",
+                    controller: Controller.emailLogin,
+                    validator: (value) {
+                      return null;
+                    }),
                 SizedBox(height: 2.h),
                 CommonTextFormField(
                   keyboardType: TextInputType.number,
                   hintText: "Enter your password",
-                  controller: VariableController.passwordController,
+                  controller: Controller.passwordLogin,
                   validator: (value) {
                     return null;
                   },
@@ -78,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 2.h),
                 CommonElevatedButton(
                   onPressed: () {
-                    Get.to(() => const MainBottomNavScreen());
+                    Get.to(() => const BottomBarScreen());
                   },
                   text: "Login",
                 ),

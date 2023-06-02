@@ -29,30 +29,30 @@ class _FormPageTwoState extends State<FormPageTwo> {
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Printed",
-          controller: VariableController.printedController,
+          controller: Controller.funeralPrintedForm2,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Signature",
-          controller: VariableController.signatureController,
+          controller: Controller.funeralSignatureForm2,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.number,
           hintText: "Date/Time",
-          controller: VariableController.dateTimeController,
+          controller: Controller.funeralDateTimeForm2,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         Padding(
           padding: EdgeInsets.only(right: 7.w, top: 4.h),
@@ -65,30 +65,30 @@ class _FormPageTwoState extends State<FormPageTwo> {
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Printed",
-          controller: VariableController.printedController,
+          controller: Controller.crematoryPrintedForm2,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Signature",
-          controller: VariableController.signatureController,
+          controller: Controller.crematorySignatureForm2,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.number,
           hintText: "Date/Time",
-          controller: VariableController.dateTimeController,
+          controller: Controller.crematoryDateTimeForm2,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         Padding(
           padding: EdgeInsets.only(right: 5.w, left: 5.w, top: 8.h),

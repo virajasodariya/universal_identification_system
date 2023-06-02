@@ -58,23 +58,23 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             ),
             Center(
               child: CommonTextFormField(
+                keyboardType: TextInputType.number,
                 hintText: "Enter your password",
-                controller: VariableController.passwordController,
+                controller: Controller.passwordNewPassword,
                 validator: (value) {
                   return null;
                 },
-                keyboardType: TextInputType.number,
               ),
             ),
             SizedBox(height: 1.5.h),
             Center(
               child: CommonTextFormField(
+                keyboardType: TextInputType.number,
                 hintText: "Enter your confirm password",
-                controller: VariableController.passwordController,
+                controller: Controller.confirmPasswordNewPassword,
                 validator: (value) {
                   return null;
                 },
-                keyboardType: TextInputType.number,
               ),
             ),
             SizedBox(height: 10.h),

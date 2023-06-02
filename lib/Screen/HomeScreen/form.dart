@@ -95,7 +95,7 @@ class _FormScreenState extends State<FormScreen> {
               itemCount: 3,
               scrollDirection: Axis.horizontal,
               physics: const PageScrollPhysics(),
-              controller: VariableController.controller,
+              controller: Controller.controller,
               onPageChanged: (value) {
                 setState(() {
                   selected = value;

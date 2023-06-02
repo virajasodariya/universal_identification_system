@@ -19,48 +19,48 @@ class _FormPageOneState extends State<FormPageOne> {
     return Column(
       children: [
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Name of the Deceased",
-          controller: VariableController.nameOfTheDeceasedController,
+          controller: Controller.nameOfTheDeceasedForm1,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
-          hintText: "Date of Death",
-          controller: VariableController.dateOfDeathController,
-          validator: (value) {
-            return null;
-          },
           keyboardType: TextInputType.number,
+          hintText: "Date of Death",
+          controller: Controller.dateOfDeathForm1,
+          validator: (value) {
+            return null;
+          },
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Place of Death",
-          controller: VariableController.placeOFDeathController,
+          controller: Controller.placeOfDeathForm1,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Number on the UIS Bracelet",
-          controller: VariableController.numberOnTheUISBraceletController,
+          controller: Controller.numberOnTheUISBraceletForm1,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Date/Time Attached",
-          controller: VariableController.dateTimeAttachedController,
+          controller: Controller.dateTimeAttachedForm1,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 4.h),
         Text(
@@ -71,27 +71,27 @@ class _FormPageOneState extends State<FormPageOne> {
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Printed",
-          controller: VariableController.printedController,
+          controller: Controller.printedForm1,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Signature",
-          controller: VariableController.signatureController,
+          controller: Controller.signatureForm1,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         Padding(
           padding: EdgeInsets.only(left: 65.w, top: 8.h),
           child: CommonElevatedSmallButton(
             onPressed: () {
-              VariableController.controller.nextPage(
+              Controller.controller.nextPage(
                 duration: const Duration(seconds: 3),
                 curve: Curves.linear,
               );

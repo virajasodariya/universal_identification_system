@@ -6,7 +6,7 @@ import 'package:sizer/sizer.dart';
 import 'package:universal_identification_system/Constants/color_helper.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Controller/variable.dart';
-import 'package:universal_identification_system/Screen/HomeScreen/bottom_main.dart';
+import 'package:universal_identification_system/Screen/HomeScreen/bottom_bar.dart';
 import 'package:universal_identification_system/Screen/Widget/elevated_button.dart';
 import 'package:universal_identification_system/Screen/Widget/text_field.dart';
 
@@ -31,7 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             children: [
               IconButton(
                 onPressed: () {
-                  Get.to(() => const MainBottomNavScreen());
+                  Get.to(() => const BottomBarScreen());
                 },
                 icon: Icon(
                   CupertinoIcons.back,
@@ -82,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         SizedBox(height: 5.h),
         CommonTextFormField(
           keyboardType: TextInputType.name,
-          controller: VariableController.nameController,
+          controller: Controller.nameProfile,
           hintText: "Enter your name",
           validator: (value) {
             return null;
@@ -91,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           keyboardType: TextInputType.emailAddress,
-          controller: VariableController.emailController,
+          controller: Controller.emailProfile,
           hintText: "Enter your email",
           validator: (value) {
             return null;
@@ -100,7 +100,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         SizedBox(height: 1.5.h),
         CommonTextFormField(
           keyboardType: TextInputType.number,
-          controller: VariableController.mobileNumberController,
+          controller: Controller.phoneNumberProfile,
           hintText: "Enter your Phone Number",
           validator: (value) {
             return null;
@@ -108,8 +108,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
-          keyboardType: TextInputType.name,
-          controller: VariableController.nameController,
+          keyboardType: TextInputType.url,
+          controller: Controller.locationProfile,
           hintText: "Enter your Location",
           validator: (value) {
             return null;

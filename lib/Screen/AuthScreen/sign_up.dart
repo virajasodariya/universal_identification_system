@@ -35,7 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CommonTextFormField(
                 keyboardType: TextInputType.name,
                 hintText: "Enter your name",
-                controller: VariableController.nameController,
+                controller: Controller.nameSignUp,
                 validator: (value) {
                   return null;
                 },
@@ -44,7 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CommonTextFormField(
                 keyboardType: TextInputType.emailAddress,
                 hintText: "Enter your email",
-                controller: VariableController.emailController,
+                controller: Controller.emailSignUp,
                 validator: (value) {
                   return null;
                 },
@@ -53,7 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CommonTextFormField(
                 keyboardType: TextInputType.number,
                 hintText: "Enter your password",
-                controller: VariableController.passwordController,
+                controller: Controller.passwordSignUp,
                 validator: (value) {
                   return null;
                 },
@@ -62,7 +62,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CommonTextFormField(
                 keyboardType: TextInputType.number,
                 hintText: "Enter your confirm password",
-                controller: VariableController.passwordController,
+                controller: Controller.confirmPasswordSignUp,
                 validator: (value) {
                   return null;
                 },

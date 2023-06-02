@@ -21,14 +21,23 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(right: 40.w, left: 40.w, top: 7.h),
-          child: UisLogoImage.uisLogoImage(),
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 5.w, bottom: 2.h),
-          child: const Icon(
-            Icons.menu,
-            color: Colors.black,
+          padding:
+              EdgeInsets.only(top: 6.h, bottom: 3.h, right: 4.w, left: 4.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Icon(
+                Icons.menu,
+                color: Colors.black,
+                size: 20.sp,
+              ),
+              SizedBox(
+                width: 25.w,
+                child: UisLogoImage.uisLogoImage(),
+              ),
+              SizedBox(width: 20.sp),
+            ],
           ),
         ),
         GestureDetector(

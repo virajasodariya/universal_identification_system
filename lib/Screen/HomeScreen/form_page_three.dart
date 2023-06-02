@@ -4,7 +4,7 @@ import 'package:sizer/sizer.dart';
 import 'package:universal_identification_system/Constants/color_helper.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Controller/variable.dart';
-import 'package:universal_identification_system/Screen/HomeScreen/bottom_main.dart';
+import 'package:universal_identification_system/Screen/HomeScreen/bottom_bar.dart';
 import 'package:universal_identification_system/Screen/Widget/elevated_button.dart';
 import 'package:universal_identification_system/Screen/Widget/text_field.dart';
 import 'package:hand_signature/signature.dart';
@@ -32,39 +32,39 @@ class _FormPageThreeState extends State<FormPageThree> {
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Printed",
-          controller: VariableController.printedController,
+          controller: Controller.printedReceiveForm3,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Relationship",
-          controller: VariableController.relationshipController,
+          controller: Controller.relationshipReceiveForm3,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Signature",
-          controller: VariableController.signatureController,
+          controller: Controller.signatureReceiveForm3,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Date/Time",
-          controller: VariableController.dateTimeController,
+          controller: Controller.dateTimeReceiveForm3,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 6.h),
         Padding(
@@ -76,30 +76,30 @@ class _FormPageThreeState extends State<FormPageThree> {
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Printed",
-          controller: VariableController.printedController,
+          controller: Controller.printedReleasingForm3,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Signature",
-          controller: VariableController.signatureController,
+          controller: Controller.signatureReleasingForm3,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "Date/Time",
-          controller: VariableController.dateTimeController,
+          controller: Controller.dateTimeReleasingForm3,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         Padding(
           padding: EdgeInsets.only(right: 65.w, top: 3.h),
@@ -111,12 +111,12 @@ class _FormPageThreeState extends State<FormPageThree> {
         ),
         SizedBox(height: 1.5.h),
         CommonTextFormField(
+          keyboardType: TextInputType.name,
           hintText: "",
-          controller: VariableController.nameController,
+          controller: Controller.uploadPhotoForm3,
           validator: (value) {
             return null;
           },
-          keyboardType: TextInputType.name,
         ),
         Padding(
           padding: EdgeInsets.only(right: 70.w, top: 2.h),
@@ -137,7 +137,7 @@ class _FormPageThreeState extends State<FormPageThree> {
               ),
               CommonElevatedSmallButton(
                 onPressed: () {
-                  Get.to(() => const MainBottomNavScreen());
+                  Get.to(() => const BottomBarScreen());
                 },
                 text: "Submit",
               ),
@@ -166,10 +166,10 @@ class _FormPageThreeState extends State<FormPageThree> {
                   height: 20.h,
                   width: 60.w,
                   decoration: BoxDecoration(
-                    color: Color(0xffFCFCFC),
+                    color: const Color(0xffFCFCFC),
                     borderRadius: BorderRadius.circular(2.h),
                     border: Border.all(
-                      color: Color(0xffF0F0F0),
+                      color: const Color(0xffF0F0F0),
                       width: 0.2.h,
                     ),
                   ),

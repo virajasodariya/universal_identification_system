@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:universal_identification_system/Constants/color_helper.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
-import 'package:universal_identification_system/Screen/HomeScreen/bottom_main.dart';
+import 'package:universal_identification_system/Screen/HomeScreen/bottom_bar.dart';
 import 'package:universal_identification_system/Screen/HomeScreen/home.dart';
 
 class HistoryScreen extends StatefulWidget {
@@ -40,7 +40,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             children: [
               IconButton(
                 onPressed: () {
-                  Get.to(() => const MainBottomNavScreen());
+                  Get.to(() => const BottomBarScreen());
                 },
                 icon: Icon(
                   CupertinoIcons.back,

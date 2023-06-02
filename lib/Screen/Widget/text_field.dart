@@ -5,16 +5,16 @@ import 'package:universal_identification_system/Constants/test_style.dart';
 class CommonTextFormField extends StatefulWidget {
   const CommonTextFormField({
     Key? key,
+    required this.keyboardType,
     required this.hintText,
     required this.controller,
     required this.validator,
-    required this.keyboardType,
   }) : super(key: key);
 
+  final TextInputType keyboardType;
   final String hintText;
   final TextEditingController controller;
   final FormFieldValidator validator;
-  final TextInputType keyboardType;
 
   @override
   State<CommonTextFormField> createState() => _CommonTextFormFieldState();
