@@ -19,11 +19,6 @@ class Controller extends GetxController {
 
   /// sign up controller
 
-  static final nameSignUp = TextEditingController();
-  static final emailSignUp = TextEditingController();
-  static final passwordSignUp = TextEditingController();
-  static final confirmPasswordSignUp = TextEditingController();
-
   /// form 1
 
   static final nameOfTheDeceasedForm1 = TextEditingController();
@@ -52,7 +47,6 @@ class Controller extends GetxController {
   static final printedReleasingForm3 = TextEditingController();
   static final signatureReleasingForm3 = TextEditingController();
   static final dateTimeReleasingForm3 = TextEditingController();
-  static final uploadPhotoForm3 = TextEditingController();
 
   /// profile
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sizer/sizer.dart';
-import 'package:universal_identification_system/Screen/AuthScreen/splash_screen.dart';
+
+import 'View/AuthScreen/sign_up.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +14,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, orientation, deviceType) {
-        return const GetMaterialApp(
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          title: 'UIS',
+          theme: ThemeData(
+            fontFamily: "Poly",
+          ),
           debugShowCheckedModeBanner: false,
-          home: SplashScreen(),
+          home: const SignUpScreen(),
         );
       },
     );

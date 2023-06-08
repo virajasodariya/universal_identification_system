@@ -36,11 +36,14 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
   get: ^4.6.5
-  sizer: ^2.0.15
   flutter_svg: ^2.0.6
-  salomon_bottom_bar: ^3.3.2
+  google_nav_bar: ^5.0.6
   hand_signature: ^3.0.1
   pinput: ^2.2.31
+  flutter_screenutil: ^5.8.4
+  intl: ^0.18.1
+  image_picker:
+  http:
 
 dev_dependencies:
   flutter_test:
