@@ -16,108 +16,97 @@ class FormPageTwo extends StatefulWidget {
 }
 
 class _FormPageTwoState extends State<FormPageTwo> {
-  FormControllers formControllers = FormControllers();
+  final _formKey = GlobalKey<FormState>();
+
+  FormControllers formControllers = Get.put(FormControllers());
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<FormControllers>(
       builder: (controller) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              "Name of Funeral/Other Representative Taking\n"
-              "Custody of the Deceased",
-              style: FontTextStyle.k00000016W400,
-            ),
-            SizedBox(height: 14.h),
-            CommonTextFormField(
-              keyboardType: TextInputType.name,
-              hintText: "Printed",
-              controller: Controller.funeralPrintedForm2,
-              validator: (value) {
-                return null;
-              },
-            ),
-            SizedBox(height: 14.h),
-            CommonTextFormField(
-              keyboardType: TextInputType.name,
-              hintText: "Signature",
-              controller: Controller.funeralSignatureForm2,
-              validator: (value) {
-                return null;
-              },
-            ),
-            SizedBox(height: 14.h),
-            CommonTextFormField(
-              keyboardType: TextInputType.number,
-              hintText: "Date/Time",
-              controller: Controller.funeralDateTimeForm2,
-              suffixIcon: controller.calendarIconButton(
-                context,
-                Controller.funeralDateTimeForm2,
+        return Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Name of Funeral/Other Representative Taking\n"
+                "Custody of the Deceased",
+                style: FontTextStyle.k00000016W400,
               ),
-              validator: (value) {
-                return null;
-              },
-            ),
-            SizedBox(height: 35.h),
-            Text(
-              "Name of Crematory/Cemetery Representative\n"
-              "Taking Custody of the Deceased",
-              style: FontTextStyle.k00000016W400,
-            ),
-            SizedBox(height: 14.h),
-            CommonTextFormField(
-              keyboardType: TextInputType.name,
-              hintText: "Printed",
-              controller: Controller.crematoryPrintedForm2,
-              validator: (value) {
-                return null;
-              },
-            ),
-            SizedBox(height: 14.h),
-            CommonTextFormField(
-              keyboardType: TextInputType.name,
-              hintText: "Signature",
-              controller: Controller.crematorySignatureForm2,
-              validator: (value) {
-                return null;
-              },
-            ),
-            SizedBox(height: 14.h),
-            CommonTextFormField(
-              keyboardType: TextInputType.number,
-              hintText: "Date/Time",
-              controller: Controller.crematoryDateTimeForm2,
-              suffixIcon: controller.calendarIconButton(
-                context,
-                Controller.crematoryDateTimeForm2,
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Printed",
+                controller: Controller.funeralPrintedForm2,
               ),
-              validator: (value) {
-                return null;
-              },
-            ),
-            SizedBox(height: 104.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CommonElevatedPerviousButton(
-                  onPressed: () {
-                    FormControllers.previousPage();
-                  },
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Signature",
+                controller: Controller.funeralSignatureForm2,
+              ),
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.number,
+                hintText: "Date/Time",
+                controller: Controller.funeralDateTimeForm2,
+                suffixIcon: controller.calendarIconButton(
+                  context,
+                  Controller.funeralDateTimeForm2,
                 ),
-                CommonElevatedSmallButton(
-                  onPressed: () {
-                    FormControllers.nextPage();
-                  },
-                  text: "Next",
+              ),
+              SizedBox(height: 35.h),
+              Text(
+                "Name of Crematory/Cemetery Representative\n"
+                "Taking Custody of the Deceased",
+                style: FontTextStyle.k00000016W400,
+              ),
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Printed",
+                controller: Controller.crematoryPrintedForm2,
+              ),
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Signature",
+                controller: Controller.crematorySignatureForm2,
+              ),
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.number,
+                hintText: "Date/Time",
+                controller: Controller.crematoryDateTimeForm2,
+                suffixIcon: controller.calendarIconButton(
+                  context,
+                  Controller.crematoryDateTimeForm2,
                 ),
-              ],
-            ),
-            SizedBox(height: 34.h),
-          ],
+              ),
+              SizedBox(height: 104.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CommonElevatedPerviousButton(
+                    onPressed: () {
+                      FormControllers.previousPage();
+                    },
+                  ),
+                  CommonElevatedSmallButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        FormControllers.nextPage();
+                      }
+                    },
+                    text: "Next",
+                  ),
+                ],
+              ),
+              SizedBox(height: 34.h),
+            ],
+          ),
         );
       },
     );

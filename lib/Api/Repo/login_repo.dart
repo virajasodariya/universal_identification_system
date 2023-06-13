@@ -4,7 +4,7 @@ import 'package:universal_identification_system/Api/api_handlers.dart';
 import 'package:universal_identification_system/Model/Response/login_response_model.dart';
 
 class LoginRepo extends BaseService {
-  Future loginRepo({required Map<String, dynamic> body}) async {
+  static Future loginRepo({required Map<String, dynamic> body}) async {
     log('BaseService.loginUrl ==> ${BaseService.loginUrl}');
 
     var response = await ApiService().getResponse(

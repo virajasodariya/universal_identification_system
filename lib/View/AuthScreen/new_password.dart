@@ -26,7 +26,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
         centerTitle: true,
         leading: CommonBackButton(
           onPressed: () {
-            Get.to(() => const VerifyingNumberScreen());
+            Get.offAll(() => const VerifyingNumberScreen(),
+                transition: Transition.zoom);
           },
         ),
         title: Text(
@@ -51,23 +52,18 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                 keyboardType: TextInputType.number,
                 hintText: "Enter your password",
                 controller: Controller.passwordNewPassword,
-                validator: (value) {
-                  return null;
-                },
               ),
               SizedBox(height: 19.h),
               CommonTextFormField(
                 keyboardType: TextInputType.number,
                 hintText: "Enter your confirm password",
                 controller: Controller.confirmPasswordNewPassword,
-                validator: (value) {
-                  return null;
-                },
               ),
               SizedBox(height: 103.h),
               CommonElevatedButton(
                 onPressed: () {
-                  Get.to(() => const LoginScreen());
+                  Get.offAll(() => const LoginScreen(),
+                      transition: Transition.zoom);
                 },
                 text: "Set Password",
               ),

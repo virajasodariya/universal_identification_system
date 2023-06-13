@@ -19,7 +19,7 @@ class ApiService {
           Uri.parse(url),
         );
         response = returnResponse(result.statusCode, result.body);
-        print("REQUEST PARAMETER url  $url");
+        log("REQUEST PARAMETER url  $url");
 
         log("resp${result.body}");
       } else if (apiType == APIType.aPost) {
@@ -30,18 +30,9 @@ class ApiService {
 
         response = returnResponse(result.statusCode, result.body);
         log('result.statusCode-------->>>>>>${result.statusCode}');
-      } else if (apiType == APIType.aImageForm) {
-        // final dio1 = dio.Dio();
-        // final formData = dio.FormData.fromMap(body!);
-        // log('formData------${body}');
-        // final result = await dio1.postUri(Uri.parse(url),
-        //     data: formData, options: dio.Options(headers: header));
-        //
-        // response = returnResponse(result.statusCode!, jsonEncode(result.data));
-        // log('result.statusCode-------->>>>>>${result.statusCode}');
       }
     } catch (error) {
-      return print('ERROR====>[$error]');
+      return log('ERROR====>[$error]');
     }
     return response;
   }
@@ -54,11 +45,7 @@ class ApiService {
         return jsonDecode(result);
       case 400:
         return jsonDecode(result);
-      // throw BadRequestException('Bad Request');
-      //   case 401:
-      //     return Get.offAll(AskForLogin());
-      //   case 403:
-      //     return Get.offAll(AskForLogin());
+
       case 404:
         throw ServerException('Server Error');
       case 500:

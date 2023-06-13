@@ -13,7 +13,7 @@ String loginResponseModelToJson(LoginResponseModel data) =>
 class LoginResponseModel {
   String status;
   String message;
-  Data data;
+  Data? data;
 
   LoginResponseModel({
     required this.status,
@@ -25,13 +25,13 @@ class LoginResponseModel {
       LoginResponseModel(
         status: json["status"],
         message: json["message"],
-        data: Data.fromJson(json["data"]),
+        data: json["data"].length < 1 ? null : Data.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {
         "status": status,
         "message": message,
-        "data": data.toJson(),
+        "data": data!.toJson(),
       };
 }
 

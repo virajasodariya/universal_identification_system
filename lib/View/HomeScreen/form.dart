@@ -45,7 +45,8 @@ class _FormScreenState extends State<FormScreen> {
                   width: 37.w,
                   child: CommonBackButton(
                     onPressed: () {
-                      Get.to(() => const BottomBarScreen());
+                      Get.offAll(() => const BottomBarScreen(),
+                          transition: Transition.zoom);
                     },
                   ),
                 ),
@@ -84,7 +85,7 @@ class _FormScreenState extends State<FormScreen> {
                 (index) => Container(
                   height: 4.h,
                   width: 123.w,
-                  color: selected == index
+                  color: index < selected + 1
                       ? PickColor.k00529B
                       : const Color(0xffDBDBDB),
                 ),

@@ -80,17 +80,20 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         ],
                       ),
                       const Spacer(),
-                      Container(
-                        height: 30.h,
-                        width: 98.w,
-                        decoration: BoxDecoration(
-                          color: PickColor.k00529B,
-                          borderRadius: BorderRadius.circular(6.r),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "View Details",
-                            style: FontTextStyle.kWhite14W400,
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          height: 30.h,
+                          width: 98.w,
+                          decoration: BoxDecoration(
+                            color: PickColor.k00529B,
+                            borderRadius: BorderRadius.circular(6.r),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "View Details",
+                              style: FontTextStyle.kWhite14W400,
+                            ),
                           ),
                         ),
                       ),

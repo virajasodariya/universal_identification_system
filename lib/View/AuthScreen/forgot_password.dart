@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -27,7 +26,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         centerTitle: true,
         leading: CommonBackButton(
           onPressed: () {
-            Get.to(() => const LoginScreen());
+            Get.offAll(() => const LoginScreen(), transition: Transition.zoom);
           },
         ),
         title: Text(
@@ -60,9 +59,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 keyboardType: TextInputType.emailAddress,
                 hintText: "Enter your email",
                 controller: Controller.emailForgotPassword,
-                validator: (value) {
-                  return null;
-                },
               ),
               SizedBox(height: 28.h),
               Center(
@@ -81,14 +77,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 keyboardType: TextInputType.number,
                 hintText: "Enter your mobile number",
                 controller: Controller.mobileNumberForgotPassword,
-                validator: (value) {
-                  return null;
-                },
               ),
               SizedBox(height: 75.h),
               CommonElevatedButton(
                 onPressed: () {
-                  Get.to(() => const VerifyingNumberScreen());
+                  Get.offAll(() => const VerifyingNumberScreen(),
+                      transition: Transition.zoom);
                 },
                 text: "Sent",
               ),

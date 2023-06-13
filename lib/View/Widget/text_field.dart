@@ -9,15 +9,15 @@ class CommonTextFormField extends StatefulWidget {
     required this.keyboardType,
     required this.hintText,
     required this.controller,
-    required this.validator,
+    // required this.validator,
     this.suffixIcon,
   }) : super(key: key);
 
   final TextInputType keyboardType;
   final String hintText;
   final TextEditingController controller;
-  final FormFieldValidator validator;
-  final dynamic suffixIcon;
+  // final FormFieldValidator validator;
+  final Widget? suffixIcon;
 
   @override
   State<CommonTextFormField> createState() => _CommonTextFormFieldState();
@@ -28,7 +28,13 @@ class _CommonTextFormFieldState extends State<CommonTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: widget.keyboardType,
-      validator: widget.validator,
+      // validator: widget.validator,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter a value';
+        }
+        return null;
+      },
       controller: widget.controller,
       cursorColor: PickColor.kBCA07D,
       decoration: InputDecoration(

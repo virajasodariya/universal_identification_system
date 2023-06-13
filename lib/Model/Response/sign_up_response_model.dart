@@ -13,7 +13,7 @@ String signUpResponseModelToJson(SignUpResponseModel data) =>
 class SignUpResponseModel {
   String status;
   String message;
-  Data data;
+  Data? data;
 
   SignUpResponseModel({
     required this.status,
@@ -25,13 +25,13 @@ class SignUpResponseModel {
       SignUpResponseModel(
         status: json["status"],
         message: json["message"],
-        data: Data.fromJson(json["data"]),
+        data: json["data"].length < 1 ? null : Data.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {
         "status": status,
         "message": message,
-        "data": data.toJson(),
+        "data": data!.toJson(),
       };
 }
 

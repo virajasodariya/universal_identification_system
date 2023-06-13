@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import 'View/AuthScreen/sign_up.dart';
+import 'package:universal_identification_system/View/AuthScreen/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +24,10 @@ class MyApp extends StatelessWidget {
             fontFamily: "Poly",
           ),
           debugShowCheckedModeBanner: false,
-          home: const SignUpScreen(),
+
+          /// email :- 112812062023@gmail.com
+          /// password :- 112812062023
+          home: const LoginScreen(),
         );
       },
     );

@@ -70,36 +70,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     keyboardType: TextInputType.name,
                     controller: Controller.nameProfile,
                     hintText: "Enter your name",
-                    validator: (value) {
-                      return null;
-                    },
                   ),
                   SizedBox(height: 19.h),
                   CommonTextFormField(
                     keyboardType: TextInputType.emailAddress,
                     controller: Controller.emailProfile,
                     hintText: "Enter your email",
-                    validator: (value) {
-                      return null;
-                    },
                   ),
                   SizedBox(height: 19.h),
                   CommonTextFormField(
                     keyboardType: TextInputType.number,
                     controller: Controller.phoneNumberProfile,
                     hintText: "Enter your Phone Number",
-                    validator: (value) {
-                      return null;
-                    },
                   ),
                   SizedBox(height: 19.h),
                   CommonTextFormField(
                     keyboardType: TextInputType.url,
                     controller: Controller.locationProfile,
                     hintText: "Enter your Location",
-                    validator: (value) {
-                      return null;
-                    },
                   ),
                   SizedBox(height: 117.h),
                 ],

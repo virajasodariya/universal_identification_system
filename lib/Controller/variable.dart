@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Controller extends GetxController {
-  /// login controller
-
-  static final emailLogin = TextEditingController();
-  static final passwordLogin = TextEditingController();
-
   /// forgot password controller
 
   static final emailForgotPassword = TextEditingController();

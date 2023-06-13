@@ -67,7 +67,9 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
                     style: FontTextStyle.k00000020W400,
                   ),
           ),
-          body: screen[controller.currentIndex],
+          body: SingleChildScrollView(
+            child: screen[controller.currentIndex],
+          ),
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(

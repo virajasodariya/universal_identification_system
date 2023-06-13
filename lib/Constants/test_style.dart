@@ -36,9 +36,9 @@ class FontTextStyle {
     fontWeight: FontWeight.w400,
   );
 
-  static TextStyle kA0A0A014W400 = TextStyle(
+  static TextStyle kA0A0A015W400 = TextStyle(
     color: PickColor.kA0A0A0,
-    fontSize: 14.sp,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w400,
   );
 

@@ -27,7 +27,8 @@ class _VerifyingNumberScreenState extends State<VerifyingNumberScreen> {
         centerTitle: true,
         leading: CommonBackButton(
           onPressed: () {
-            Get.to(() => const ForgotPasswordScreen());
+            Get.offAll(() => const ForgotPasswordScreen(),
+                transition: Transition.zoom);
           },
         ),
         title: Text(
@@ -67,7 +68,8 @@ class _VerifyingNumberScreenState extends State<VerifyingNumberScreen> {
               SizedBox(height: 98.h),
               CommonElevatedButton(
                 onPressed: () {
-                  Get.to(() => const NewPasswordScreen());
+                  Get.offAll(() => const NewPasswordScreen(),
+                      transition: Transition.zoom);
                 },
                 text: "Verify",
               ),
