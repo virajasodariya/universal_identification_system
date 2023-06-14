@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:universal_identification_system/Api/api_response.dart'
-    as status;
+import 'package:universal_identification_system/Api/api_response.dart';
+import 'package:universal_identification_system/Api/status.dart';
 import 'package:universal_identification_system/Constants/color.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Model/Response/all_forms_response_model.dart';
@@ -17,11 +17,11 @@ class HistoryScreen extends StatefulWidget {
 }
 
 class _HistoryScreenState extends State<HistoryScreen> {
-  AllFormsViewModel getAllFormsViewModel = Get.put(AllFormsViewModel());
+  AllFormsViewModel allFormsViewModel = Get.put(AllFormsViewModel());
 
   @override
   void initState() {
-    getAllFormsViewModel.allFormsViewModel();
+    allFormsViewModel.allFormsViewModel();
     // TODO: implement initState
     super.initState();
   }
@@ -123,7 +123,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     return SingleChildScrollView(
       child: GetBuilder<AllFormsViewModel>(
         builder: (controller) {
-          if (controller.apiResponse.status == status.Status.COMPLETE) {
+          if (controller.apiResponse.status == Status.COMPLETE) {
             AllFormsResponseModel responseModel = controller.apiResponse.data;
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -205,10 +205,12 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 ],
               ),
             );
+          } else if (controller.apiResponse.status == Status.ERROR) {
+            return const Center(child: Text("ERROR"));
+          } else if (controller.apiResponse.status == Status.LOADING) {
+            return const Center(child: CircularProgressIndicator());
           } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: Text("SOMETHING WENT WRONG"));
           }
         },
       ),

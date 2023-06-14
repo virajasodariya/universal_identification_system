@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:universal_identification_system/Api/api_response.dart';
+import 'package:universal_identification_system/Api/status.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Model/Response/sign_up_response_model.dart';
 import 'package:universal_identification_system/View/AuthScreen/Widget/image_uis.dart';

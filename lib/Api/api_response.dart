@@ -1,3 +1,5 @@
+import 'package:universal_identification_system/Api/status.dart';
+
 class ApiResponse<T> {
   String? message;
   T? data;
@@ -15,5 +17,3 @@ class ApiResponse<T> {
     return 'Status : $status message : $message data : $data';
   }
 }
-
-enum Status { INITIAL, LOADING, COMPLETE, ERROR }
