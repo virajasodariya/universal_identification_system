@@ -7,12 +7,15 @@ class SignUpRepo extends BaseService {
   static Future signUpRepo({required Map<String, dynamic> body}) async {
     var response = await ApiService().getResponse(
         apiType: APIType.aPost, url: BaseService.registerUrl, body: body);
+
     log('++++++++++++++++++++++++RESPONSE   $response');
+
     SignUpResponseModel signUpResponseModel =
         SignUpResponseModel.fromJson(response);
 
     log('-----------------------$response');
     log('-----------------------${BaseService.registerUrl}');
+
     return signUpResponseModel;
   }
 }

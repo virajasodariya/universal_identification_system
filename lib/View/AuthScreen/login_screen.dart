@@ -93,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       return CommonElevatedButton(
                         onPressed: () async {
                           if (formKey.currentState!.validate()) {
-                            await controller.loginViewModel(body: {
+                            await controller.loginViewModel({
                               "email": controller.emailLogin.text,
                               "password": controller.passwordLogin.text,
                             });

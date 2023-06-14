@@ -5,15 +5,16 @@ import 'package:universal_identification_system/Model/Response/login_response_mo
 
 class LoginRepo extends BaseService {
   static Future loginRepo({required Map<String, dynamic> body}) async {
-    log('BaseService.loginUrl ==> ${BaseService.loginUrl}');
-
     var response = await ApiService().getResponse(
         apiType: APIType.aPost, url: BaseService.loginUrl, body: body);
 
-    log('response ==> $response');
+    log('++++++++++++++++++++++++RESPONSE   $response');
 
     LoginResponseModel loginResponseModel =
         LoginResponseModel.fromJson(response);
+
+    log('-----------------------$response');
+    log('-----------------------${BaseService.loginUrl}');
 
     return loginResponseModel;
   }

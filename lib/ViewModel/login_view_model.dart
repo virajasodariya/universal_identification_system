@@ -14,17 +14,19 @@ class LoginViewModel extends GetxController {
   TextEditingController emailLogin = TextEditingController();
   TextEditingController passwordLogin = TextEditingController();
 
-  Future<void> loginViewModel({required Map<String, dynamic> body}) async {
+  Future<void> loginViewModel(Map<String, dynamic> body) async {
     _apiResponseLogin = ApiResponse.loading(message: 'Loading');
     update();
     try {
       LoginResponseModel response = await LoginRepo.loginRepo(body: body);
-      log('==LoginResponseModel=>$response');
 
       _apiResponseLogin = ApiResponse.complete(response);
+
+      log('loginResponseModel----response---->>>>>>$response');
     } catch (e) {
       _apiResponseLogin = ApiResponse.error(message: e.toString());
-      log(".........   $e");
+
+      log('loginViewModel-------->>>>>>$e');
     }
     update();
   }

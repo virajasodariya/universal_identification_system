@@ -57,7 +57,10 @@ class _FormScreenState extends State<FormScreen> {
                 selected == 2
                     ? GestureDetector(
                         onTap: () {
-                          Get.to(() => const DeathCertificate());
+                          Get.to(
+                            () => const DeathCertificate(),
+                            transition: Transition.zoom,
+                          );
                         },
                         child: Container(
                           height: 37.h,

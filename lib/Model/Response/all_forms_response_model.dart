@@ -1,46 +1,46 @@
 // To parse this JSON data, do
 //
-//     final getSingleFormResponseModel = getSingleFormResponseModelFromJson(jsonString);
+//     final getAllFormsResponseModel = getAllFormsResponseModelFromJson(jsonString);
 
 import 'dart:convert';
 
-GetSingleFormResponseModel getSingleFormResponseModelFromJson(String str) =>
-    GetSingleFormResponseModel.fromJson(json.decode(str));
+AllFormsResponseModel allFormsResponseModelFromJson(String str) =>
+    AllFormsResponseModel.fromJson(json.decode(str));
 
-String getSingleFormResponseModelToJson(GetSingleFormResponseModel data) =>
+String allFormsResponseModelToJson(AllFormsResponseModel data) =>
     json.encode(data.toJson());
 
-class GetSingleFormResponseModel {
+class AllFormsResponseModel {
   String status;
   String message;
-  Data data;
+  List<Datum> data;
 
-  GetSingleFormResponseModel({
+  AllFormsResponseModel({
     required this.status,
     required this.message,
     required this.data,
   });
 
-  factory GetSingleFormResponseModel.fromJson(Map<String, dynamic> json) =>
-      GetSingleFormResponseModel(
+  factory AllFormsResponseModel.fromJson(Map<String, dynamic> json) =>
+      AllFormsResponseModel(
         status: json["status"],
         message: json["message"],
-        data: Data.fromJson(json["data"]),
+        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "status": status,
         "message": message,
-        "data": data.toJson(),
+        "data": List<dynamic>.from(data.map((x) => x.toJson())),
       };
 }
 
-class Data {
+class Datum {
   int id;
   dynamic numberOnUisBand;
-  int countryId;
-  int stateId;
-  dynamic deceasedName;
+  dynamic countryId;
+  dynamic stateId;
+  String deceasedName;
   DateTime dateOfDeath;
   String placeOfDeath;
   String phoneNumber;
@@ -59,15 +59,17 @@ class Data {
   String nameOfPersonReleasingCrematedRemainsEsign;
   DateTime nameOfPersonReleasingCrematedRemainsDt;
   String status;
+  dynamic randomNumber;
+  dynamic qrCodeImage;
   DateTime createdAt;
   DateTime updatedAt;
 
-  Data({
+  Datum({
     required this.id,
     this.numberOnUisBand,
     required this.countryId,
     required this.stateId,
-    this.deceasedName,
+    required this.deceasedName,
     required this.dateOfDeath,
     required this.placeOfDeath,
     required this.phoneNumber,
@@ -86,16 +88,18 @@ class Data {
     required this.nameOfPersonReleasingCrematedRemainsEsign,
     required this.nameOfPersonReleasingCrematedRemainsDt,
     required this.status,
+    required this.randomNumber,
+    required this.qrCodeImage,
     required this.createdAt,
     required this.updatedAt,
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
-        numberOnUisBand: json["number_on_uis_band"],
+        numberOnUisBand: json["number_on_uis_band"] ?? '',
         countryId: json["country_id"],
-        stateId: json["state_id"],
-        deceasedName: json["deceased_name"],
+        stateId: json["state_id"] ?? '',
+        deceasedName: json["deceased_name"] ?? '',
         dateOfDeath: DateTime.parse(json["date_of_death"]),
         placeOfDeath: json["place_of_death"],
         phoneNumber: json["phone_number"],
@@ -124,6 +128,8 @@ class Data {
         nameOfPersonReleasingCrematedRemainsDt: DateTime.parse(
             json["name_of_person_releasing_cremated_remains_dt"]),
         status: json["status"],
+        randomNumber: json["random_number"] ?? '',
+        qrCodeImage: json["qr_code_image"] ?? '',
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
       );
@@ -164,6 +170,8 @@ class Data {
         "name_of_person_releasing_cremated_remains_dt":
             nameOfPersonReleasingCrematedRemainsDt.toIso8601String(),
         "status": status,
+        "random_number": randomNumber,
+        "qr_code_image": qrCodeImage,
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
       };

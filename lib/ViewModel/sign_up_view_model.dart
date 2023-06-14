@@ -6,9 +6,10 @@ import 'package:universal_identification_system/Api/api_response.dart';
 import 'package:universal_identification_system/Model/Response/sign_up_response_model.dart';
 
 class SignUpViewModel extends GetxController {
-  ApiResponse _apiResponse = ApiResponse.initial(message: 'Initialization');
+  ApiResponse _apiResponseSignUp =
+      ApiResponse.initial(message: 'Initialization');
 
-  ApiResponse get apiResponse => _apiResponse;
+  ApiResponse get apiResponse => _apiResponseSignUp;
 
   TextEditingController nameSignUp = TextEditingController();
   TextEditingController emailSignUp = TextEditingController();
@@ -16,15 +17,16 @@ class SignUpViewModel extends GetxController {
   TextEditingController confirmPasswordSignUp = TextEditingController();
 
   Future<void> signUpViewModel(Map<String, dynamic> body) async {
-    _apiResponse = ApiResponse.loading(message: 'Loading');
+    _apiResponseSignUp = ApiResponse.loading(message: 'Loading');
     update();
     try {
       SignUpResponseModel response = await SignUpRepo.signUpRepo(body: body);
 
-      _apiResponse = ApiResponse.complete(response);
+      _apiResponseSignUp = ApiResponse.complete(response);
+
       log('signUpViewModel----response---->>>>>>$response');
     } catch (e) {
-      _apiResponse = ApiResponse.error(message: e.toString());
+      _apiResponseSignUp = ApiResponse.error(message: e.toString());
 
       log('signUpViewModel-------->>>>>>$e');
     }

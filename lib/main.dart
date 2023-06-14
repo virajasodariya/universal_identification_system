@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:universal_identification_system/View/AuthScreen/login_screen.dart';
+import 'package:universal_identification_system/View/HomeScreen/bottom_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 
           /// email :- 112812062023@gmail.com
           /// password :- 112812062023
-          home: const LoginScreen(),
+          home: const BottomBarScreen(),
         );
       },
     );

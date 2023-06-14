@@ -25,7 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
           Center(
             child: GestureDetector(
               onTap: () {
-                Get.to(() => const FormScreen());
+                Get.to(
+                  () => const FormScreen(),
+                  transition: Transition.zoom,
+                );
               },
               child: SizedBox(
                 width: 291.67.w,
