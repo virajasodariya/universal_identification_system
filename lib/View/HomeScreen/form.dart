@@ -13,7 +13,8 @@ import 'package:universal_identification_system/View/HomeScreen/form_page_two.da
 import 'package:universal_identification_system/View/Widget/icon_button.dart';
 
 class FormScreen extends StatefulWidget {
-  const FormScreen({Key? key}) : super(key: key);
+  const FormScreen({Key? key, this.id}) : super(key: key);
+  final dynamic id;
 
   @override
   State<FormScreen> createState() => _FormScreenState();

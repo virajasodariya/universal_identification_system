@@ -179,7 +179,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
                               const Spacer(),
                               GestureDetector(
                                 onTap: () {
-                                  Get.to(() => const FormScreen());
+                                  Get.to(
+                                    () => const FormScreen(),
+                                  );
                                 },
                                 child: Container(
                                   height: 30.h,
