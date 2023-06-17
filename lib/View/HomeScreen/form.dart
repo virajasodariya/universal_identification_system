@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:universal_identification_system/Api/status.dart';
 import 'package:universal_identification_system/Constants/color.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Controller/variable.dart';
@@ -11,16 +13,18 @@ import 'package:universal_identification_system/View/HomeScreen/form_page_one.da
 import 'package:universal_identification_system/View/HomeScreen/form_page_three.dart';
 import 'package:universal_identification_system/View/HomeScreen/form_page_two.dart';
 import 'package:universal_identification_system/View/Widget/icon_button.dart';
+import 'package:universal_identification_system/ViewModel/single_form_view_model.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({Key? key, this.id}) : super(key: key);
-  final dynamic id;
+  final id;
 
   @override
   State<FormScreen> createState() => _FormScreenState();
 }
 
 class _FormScreenState extends State<FormScreen> {
+  final box = GetStorage();
   List formPage = [
     const FormPageOne(),
     const FormPageTwo(),
@@ -28,6 +32,15 @@ class _FormScreenState extends State<FormScreen> {
   ];
 
   int selected = 0;
+
+  SingleFormViewModel singleFormViewModel = Get.put(SingleFormViewModel());
+
+  @override
+  void initState() {
+    singleFormViewModel.singleFormViewModel();
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +102,8 @@ class _FormScreenState extends State<FormScreen> {
                 (index) => Container(
                   height: 4.h,
                   width: 123.w,
-                  color: index < selected + 1
+                  // color: index < selected + 1
+                  color: selected >= index
                       ? PickColor.k00529B
                       : const Color(0xffDBDBDB),
                 ),
@@ -108,8 +122,23 @@ class _FormScreenState extends State<FormScreen> {
                   });
                 },
                 itemBuilder: (context, index) {
-                  return SingleChildScrollView(
-                    child: formPage[index],
+                  return GetBuilder<SingleFormViewModel>(
+                    builder: (controller) {
+                      if (controller.apiResponse.status == Status.COMPLETE) {
+                        return SingleChildScrollView(
+                          child: formPage[index],
+                        );
+                      } else if (controller.apiResponse.status ==
+                          Status.LOADING) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (controller.apiResponse.status ==
+                          Status.ERROR) {
+                        return const Center(child: Text("ERROR"));
+                      } else {
+                        return const Center(
+                            child: Text("SOMETHING WENT WRONG"));
+                      }
+                    },
                   );
                 },
               ),

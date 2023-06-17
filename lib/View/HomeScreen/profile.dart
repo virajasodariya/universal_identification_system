@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:universal_identification_system/Constants/color.dart';
 import 'package:universal_identification_system/Controller/variable.dart';
+import 'package:universal_identification_system/View/AuthScreen/login_screen.dart';
 import 'package:universal_identification_system/View/Widget/elevated_button.dart';
 import 'package:universal_identification_system/View/Widget/text_field.dart';
 
@@ -14,6 +17,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final box = GetStorage();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -91,6 +96,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
           onPressed: () {},
           text: "Save",
         ),
+        SizedBox(height: 20.h),
+        CommonElevatedButton(
+          onPressed: () {
+            Get.offAll(
+              () => const LoginScreen(),
+              transition: Transition.fadeIn,
+              duration: const Duration(seconds: 2),
+            );
+            // box.remove("userId");
+          },
+          text: "Log Out",
+        ),
+        SizedBox(height: 20.h),
       ],
     );
   }

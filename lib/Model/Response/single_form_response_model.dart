@@ -1,6 +1,6 @@
 // To parse this JSON data, do
 //
-//     final getSingleFormResponseModel = getSingleFormResponseModelFromJson(jsonString);
+//     final singleFormResponseModel = singleFormResponseModelFromJson(jsonString);
 
 import 'dart:convert';
 

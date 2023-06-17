@@ -88,9 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 36.h),
                 GetBuilder<LoginViewModel>(
                   builder: (controller) {
-                    if (controller.apiResponse.status == Status.INITIAL ||
-                        controller.apiResponse.status == Status.COMPLETE ||
-                        controller.apiResponse.status == Status.ERROR) {
+                    if (controller.apiResponse.status == Status.COMPLETE ||
+                        controller.apiResponse.status == Status.ERROR ||
+                        controller.apiResponse.status == Status.INITIAL) {
                       return CommonElevatedButton(
                         onPressed: () async {
                           if (formKey.currentState!.validate()) {
@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         text: "Login",
                       );
                     } else {
-                      return const CircularProgressIndicator();
+                      return const Center(child: CircularProgressIndicator());
                     }
                   },
                 ),

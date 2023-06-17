@@ -34,34 +34,37 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 ),
               ],
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 40.h,
-                  width: 40.w,
-                  decoration: BoxDecoration(
-                    color: PickColor.k00529B,
-                    borderRadius: BorderRadius.circular(6.r),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 40.h,
+                    width: 40.w,
+                    decoration: BoxDecoration(
+                      color: PickColor.k00529B,
+                      borderRadius: BorderRadius.circular(6.r),
+                    ),
+                    child: const Icon(
+                      Icons.notifications_none,
+                      color: Colors.white,
+                    ),
                   ),
-                  child: const Icon(
-                    Icons.notifications_none,
-                    color: Colors.white,
+                  Text(
+                    "Lorem Ipsum is simply dummy text of the ext\n"
+                    "of theext of the",
+                    style: FontTextStyle.k95959514W400,
                   ),
-                ),
-                Text(
-                  "Lorem Ipsum is simply dummy text of the ext\n"
-                  "of theext of the",
-                  style: FontTextStyle.k95959514W400,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10.h, bottom: 31.h),
-                  child: Text(
-                    "2min",
-                    style: FontTextStyle.k95959510W400,
+                  Padding(
+                    padding: EdgeInsets.only(top: 10.h, bottom: 31.h),
+                    child: Text(
+                      "2min",
+                      style: FontTextStyle.k95959510W400,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

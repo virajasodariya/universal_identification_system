@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:universal_identification_system/View/HomeScreen/bottom_bar.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:universal_identification_system/View/AuthScreen/splash_screen.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -25,9 +26,9 @@ class MyApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
 
-          /// email :- 112812062023@gmail.com
-          /// password :- 112812062023
-          home: const BottomBarScreen(),
+          /// email :- amangupta2404@gmail.com
+          /// password :- 123456789
+          home: const SplashScreen(),
         );
       },
     );

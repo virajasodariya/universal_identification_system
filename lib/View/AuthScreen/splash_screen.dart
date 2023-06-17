@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:universal_identification_system/View/AuthScreen/Widget/image_uis.dart';
 import 'package:universal_identification_system/View/AuthScreen/login_screen.dart';
+import 'package:universal_identification_system/View/HomeScreen/bottom_bar.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -12,6 +14,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final box = GetStorage();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -21,7 +25,9 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(seconds: 3),
       () {
         Get.to(
-          () => const LoginScreen(),
+          () => box.read("userId") == null
+              ? const LoginScreen()
+              : const BottomBarScreen(),
           transition: Transition.zoom,
         );
       },
