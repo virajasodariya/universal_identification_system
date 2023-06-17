@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:universal_identification_system/View/AuthScreen/Widget/show_toast.dart';
 
 class Demo extends StatefulWidget {
   const Demo({super.key});
@@ -11,14 +10,11 @@ class Demo extends StatefulWidget {
 class _DemoState extends State<Demo> {
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            CommonToast.showToast("hey, This is viraj!");
-          },
-          child: const Text("Tap Here"),
-        ),
+        child: Text("$height\n$width"),
       ),
     );
   }

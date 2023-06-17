@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
 
           /// email :- amangupta2404@gmail.com
           /// password :- 123456789
+
           home: const SplashScreen(),
         );
       },
