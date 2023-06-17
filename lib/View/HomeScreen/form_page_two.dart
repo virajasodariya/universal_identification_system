@@ -3,9 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Controller/forms.dart';
-import 'package:universal_identification_system/Controller/variable.dart';
+import 'package:universal_identification_system/View/Widget/e_sign.dart';
 import 'package:universal_identification_system/View/Widget/elevated_button.dart';
 import 'package:universal_identification_system/View/Widget/text_field.dart';
+import 'package:universal_identification_system/ViewModel/single_form_view_model.dart';
 
 /// form number 2
 class FormPageTwo extends StatefulWidget {
@@ -19,10 +20,11 @@ class _FormPageTwoState extends State<FormPageTwo> {
   final _formKey = GlobalKey<FormState>();
 
   FormControllers formControllers = Get.put(FormControllers());
+  SingleFormViewModel singleFormViewModel = Get.find<SingleFormViewModel>();
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<FormControllers>(
+    return GetBuilder<SingleFormViewModel>(
       builder: (controller) {
         return Form(
           key: _formKey,
@@ -39,23 +41,36 @@ class _FormPageTwoState extends State<FormPageTwo> {
               CommonTextFormField(
                 keyboardType: TextInputType.name,
                 hintText: "Printed",
-                controller: Controller.funeralPrintedForm2,
+                controller: singleFormViewModel.funeralPrintedForm2,
               ),
               SizedBox(height: 14.h),
               CommonTextFormField(
                 keyboardType: TextInputType.name,
                 hintText: "Signature",
-                controller: Controller.funeralSignatureForm2,
+                controller: singleFormViewModel
+                    .nameFuneralDirectorOtherRepresentativeTakingCustodyEsign,
+                suffixIcon: ESign.elevatedButtonSmall(
+                  () {
+                    ESign.generalDialog();
+                  },
+                  "Esign",
+                ),
               ),
               SizedBox(height: 14.h),
-              CommonTextFormField(
-                keyboardType: TextInputType.number,
-                hintText: "Date/Time",
-                controller: Controller.funeralDateTimeForm2,
-                suffixIcon: controller.calendarIconButton(
-                  context,
-                  Controller.funeralDateTimeForm2,
-                ),
+              GetBuilder<FormControllers>(
+                builder: (formController) {
+                  return CommonTextFormField(
+                    keyboardType: TextInputType.number,
+                    hintText: "Date/Time",
+                    controller: singleFormViewModel
+                        .nameFuneralDirectorOtherRepresentativeTakingCustodyDt,
+                    suffixIcon: formControllers.calendarIconButton(
+                      context,
+                      singleFormViewModel
+                          .nameFuneralDirectorOtherRepresentativeTakingCustodyDt,
+                    ),
+                  );
+                },
               ),
               SizedBox(height: 35.h),
               Text(
@@ -67,23 +82,36 @@ class _FormPageTwoState extends State<FormPageTwo> {
               CommonTextFormField(
                 keyboardType: TextInputType.name,
                 hintText: "Printed",
-                controller: Controller.crematoryPrintedForm2,
+                controller: singleFormViewModel.crematoryPrintedForm2,
               ),
               SizedBox(height: 14.h),
               CommonTextFormField(
                 keyboardType: TextInputType.name,
                 hintText: "Signature",
-                controller: Controller.crematorySignatureForm2,
+                controller: singleFormViewModel
+                    .nameCrematoryCemeteryRepresentativeCustodyDeceasedEsign,
+                suffixIcon: ESign.elevatedButtonSmall(
+                  () {
+                    ESign.generalDialog();
+                  },
+                  "Esign",
+                ),
               ),
               SizedBox(height: 14.h),
-              CommonTextFormField(
-                keyboardType: TextInputType.number,
-                hintText: "Date/Time",
-                controller: Controller.crematoryDateTimeForm2,
-                suffixIcon: controller.calendarIconButton(
-                  context,
-                  Controller.crematoryDateTimeForm2,
-                ),
+              GetBuilder<FormControllers>(
+                builder: (formController) {
+                  return CommonTextFormField(
+                    keyboardType: TextInputType.number,
+                    hintText: "Date/Time",
+                    controller: singleFormViewModel
+                        .nameCrematoryCemeteryRepresentativeCustodyDeceasedDt,
+                    suffixIcon: formController.calendarIconButton(
+                      context,
+                      singleFormViewModel
+                          .nameCrematoryCemeteryRepresentativeCustodyDeceasedDt,
+                    ),
+                  );
+                },
               ),
               SizedBox(height: 104.h),
               Row(

@@ -6,11 +6,11 @@ import 'package:image_picker/image_picker.dart';
 import 'package:universal_identification_system/Constants/color.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Controller/forms.dart';
-import 'package:universal_identification_system/Controller/variable.dart';
-import 'package:hand_signature/signature.dart';
 import 'package:universal_identification_system/View/HomeScreen/bottom_bar.dart';
+import 'package:universal_identification_system/View/Widget/e_sign.dart';
 import 'package:universal_identification_system/View/Widget/elevated_button.dart';
 import 'package:universal_identification_system/View/Widget/text_field.dart';
+import 'package:universal_identification_system/ViewModel/single_form_view_model.dart';
 
 ///form number 3
 class FormPageThree extends StatefulWidget {
@@ -21,19 +21,20 @@ class FormPageThree extends StatefulWidget {
 }
 
 class _FormPageThreeState extends State<FormPageThree> {
-  final _formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   FormControllers formControllers = Get.put(FormControllers());
+  SingleFormViewModel singleFormViewModel = Get.find<SingleFormViewModel>();
 
   File? imageFile;
   ImagePicker picker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<FormControllers>(
+    return GetBuilder<SingleFormViewModel>(
       builder: (controller) {
         return Form(
-          key: _formKey,
+          key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -47,29 +48,43 @@ class _FormPageThreeState extends State<FormPageThree> {
               CommonTextFormField(
                 keyboardType: TextInputType.name,
                 hintText: "Printed",
-                controller: Controller.printedReceiveForm3,
+                controller: singleFormViewModel.printedReceiveForm3,
               ),
               SizedBox(height: 14.h),
               CommonTextFormField(
                 keyboardType: TextInputType.name,
                 hintText: "Relationship",
-                controller: Controller.relationshipReceiveForm3,
+                controller: singleFormViewModel
+                    .nameOfPersonEntitledToReceiveCrematedRemainsRelationship,
               ),
               SizedBox(height: 14.h),
               CommonTextFormField(
                 keyboardType: TextInputType.name,
                 hintText: "Signature",
-                controller: Controller.signatureReceiveForm3,
+                controller: singleFormViewModel
+                    .nameOfPersonEntitledToReceiveCrematedRemainsEsign,
+                suffixIcon: ESign.elevatedButtonSmall(
+                  () {
+                    ESign.generalDialog();
+                  },
+                  "Esign",
+                ),
               ),
               SizedBox(height: 14.h),
-              CommonTextFormField(
-                keyboardType: TextInputType.name,
-                hintText: "Date/Time",
-                controller: Controller.dateTimeReceiveForm3,
-                suffixIcon: controller.calendarIconButton(
-                  context,
-                  Controller.dateTimeReceiveForm3,
-                ),
+              GetBuilder<FormControllers>(
+                builder: (formController1) {
+                  return CommonTextFormField(
+                    keyboardType: TextInputType.name,
+                    hintText: "Date/Time",
+                    controller: singleFormViewModel
+                        .nameOfPersonEntitledToReceiveCrematedRemainsDt,
+                    suffixIcon: formControllers.calendarIconButton(
+                      context,
+                      singleFormViewModel
+                          .nameOfPersonEntitledToReceiveCrematedRemainsDt,
+                    ),
+                  );
+                },
               ),
               SizedBox(height: 57.h),
               Text(
@@ -80,23 +95,36 @@ class _FormPageThreeState extends State<FormPageThree> {
               CommonTextFormField(
                 keyboardType: TextInputType.name,
                 hintText: "Printed",
-                controller: Controller.printedReleasingForm3,
+                controller: singleFormViewModel.printedReleasingForm3,
               ),
               SizedBox(height: 14.h),
               CommonTextFormField(
+                suffixIcon: ESign.elevatedButtonSmall(
+                  () {
+                    ESign.generalDialog();
+                  },
+                  "Esign",
+                ),
                 keyboardType: TextInputType.name,
                 hintText: "Signature",
-                controller: Controller.signatureReleasingForm3,
+                controller: singleFormViewModel
+                    .nameOfPersonReleasingCrematedRemainsEsign,
               ),
               SizedBox(height: 14.h),
-              CommonTextFormField(
-                keyboardType: TextInputType.name,
-                hintText: "Date/Time",
-                controller: Controller.dateTimeReleasingForm3,
-                suffixIcon: controller.calendarIconButton(
-                  context,
-                  Controller.dateTimeReleasingForm3,
-                ),
+              GetBuilder<FormControllers>(
+                builder: (formController2) {
+                  return CommonTextFormField(
+                    keyboardType: TextInputType.name,
+                    hintText: "Date/Time",
+                    controller: singleFormViewModel
+                        .nameOfPersonReleasingCrematedRemainsDt,
+                    suffixIcon: formControllers.calendarIconButton(
+                      context,
+                      singleFormViewModel
+                          .nameOfPersonReleasingCrematedRemainsDt,
+                    ),
+                  );
+                },
               ),
               SizedBox(height: 31.h),
               Text(
@@ -162,9 +190,9 @@ class _FormPageThreeState extends State<FormPageThree> {
                 ),
               ),
               SizedBox(height: 31.h),
-              buildElevatedButtonSmall(
+              ESign.elevatedButtonSmall(
                 () {
-                  buildGeneralDialog();
+                  ESign.generalDialog();
                 },
                 "Esign",
               ),
@@ -179,7 +207,7 @@ class _FormPageThreeState extends State<FormPageThree> {
                   ),
                   CommonElevatedSmallButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {
+                      if (formKey.currentState!.validate()) {
                         Get.offAll(() => const BottomBarScreen(),
                             transition: Transition.zoom);
                       }
@@ -193,81 +221,6 @@ class _FormPageThreeState extends State<FormPageThree> {
           ),
         );
       },
-    );
-  }
-
-  Future<dynamic> buildGeneralDialog() {
-    return Get.generalDialog(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        final control = HandSignatureControl(
-          threshold: 3.0,
-          smoothRatio: 0.65,
-          velocityRange: 2.0,
-        );
-        return Dialog(
-          child: Container(
-            height: 356.h,
-            width: 311.w,
-            color: Colors.white,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(height: 26.h),
-                Container(
-                  height: 177.h,
-                  width: 271.w,
-                  decoration: BoxDecoration(
-                    color: PickColor.kBCA07D,
-                    borderRadius: BorderRadius.circular(2.h),
-                    border: Border.all(
-                      color: const Color(0xffF0F0F0),
-                      width: 0.2.h,
-                    ),
-                  ),
-                  child: HandSignature(
-                    control: control,
-                    color: PickColor.k00529B,
-                    // strokeWidth: 1.0,
-                    // maxStrokeWidth: 10.0,
-                    width: 1.0,
-                    maxWidth: 10.0,
-                    type: SignatureDrawType.shape,
-                  ),
-                ),
-                SizedBox(height: 27.h),
-                CommonElevatedSmallButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  text: "Save",
-                ),
-                SizedBox(height: 10.h),
-                buildElevatedButtonSmall(
-                  () {
-                    control.clear();
-                  },
-                  "Redo",
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  ElevatedButton buildElevatedButtonSmall(VoidCallback onPressed, String text) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(Colors.white),
-        minimumSize: MaterialStateProperty.all(Size(79.sp, 35.sp)),
-        shadowColor: MaterialStateProperty.all(Colors.grey),
-      ),
-      child: Text(
-        text,
-        style: FontTextStyle.k00529B14W400,
-      ),
     );
   }
 }

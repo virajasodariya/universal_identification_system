@@ -12,37 +12,6 @@ class Controller extends GetxController {
   static final passwordNewPassword = TextEditingController();
   static final confirmPasswordNewPassword = TextEditingController();
 
-  /// sign up controller
-
-  /// form 1
-
-  static final nameOfTheDeceasedForm1 = TextEditingController();
-  static final dateOfDeathForm1 = TextEditingController();
-  static final placeOfDeathForm1 = TextEditingController();
-  static final numberOnTheUISBraceletForm1 = TextEditingController();
-  static final dateTimeAttachedForm1 = TextEditingController();
-  static final printedForm1 = TextEditingController();
-  static final signatureForm1 = TextEditingController();
-
-  /// form 2
-
-  static final funeralPrintedForm2 = TextEditingController();
-  static final funeralSignatureForm2 = TextEditingController();
-  static final funeralDateTimeForm2 = TextEditingController();
-  static final crematoryPrintedForm2 = TextEditingController();
-  static final crematorySignatureForm2 = TextEditingController();
-  static final crematoryDateTimeForm2 = TextEditingController();
-
-  /// form 3
-
-  static final printedReceiveForm3 = TextEditingController();
-  static final relationshipReceiveForm3 = TextEditingController();
-  static final signatureReceiveForm3 = TextEditingController();
-  static final dateTimeReceiveForm3 = TextEditingController();
-  static final printedReleasingForm3 = TextEditingController();
-  static final signatureReleasingForm3 = TextEditingController();
-  static final dateTimeReleasingForm3 = TextEditingController();
-
   /// profile
 
   static final nameProfile = TextEditingController();

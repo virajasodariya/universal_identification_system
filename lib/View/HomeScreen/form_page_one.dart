@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:universal_identification_system/Constants/test_style.dart';
 import 'package:universal_identification_system/Controller/forms.dart';
-import 'package:universal_identification_system/Controller/variable.dart';
+import 'package:universal_identification_system/View/Widget/e_sign.dart';
 import 'package:universal_identification_system/View/Widget/elevated_button.dart';
 import 'package:universal_identification_system/View/Widget/text_field.dart';
 import 'package:universal_identification_system/ViewModel/single_form_view_model.dart';
@@ -24,82 +24,92 @@ class _FormPageOneState extends State<FormPageOne> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CommonTextFormField(
-            keyboardType: TextInputType.name,
-            hintText: "Name of the Deceased",
-            controller: Controller.nameOfTheDeceasedForm1,
-          ),
-          SizedBox(height: 14.h),
-          GetBuilder<FormControllers>(
-            builder: (formController) {
-              return CommonTextFormField(
-                keyboardType: TextInputType.number,
-                hintText: "Date of Death",
-                controller: Controller.dateOfDeathForm1,
-                suffixIcon: formController.calendarIconButton(
-                  context,
-                  Controller.dateOfDeathForm1,
+    return GetBuilder<SingleFormViewModel>(
+      builder: (controller) {
+        return Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Name of the Deceased",
+                controller: singleFormViewModel.deceasedName,
+              ),
+              SizedBox(height: 14.h),
+              GetBuilder<FormControllers>(
+                builder: (formController) {
+                  return CommonTextFormField(
+                    keyboardType: TextInputType.number,
+                    hintText: "Date of Death",
+                    controller: singleFormViewModel.dateOfDeath,
+                    suffixIcon: formControllers.calendarIconButton(
+                      context,
+                      singleFormViewModel.dateOfDeath,
+                    ),
+                  );
+                },
+              ),
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Place of Death",
+                controller: singleFormViewModel.placeOfDeath,
+              ),
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Number on the UIS Bracelet",
+                controller: singleFormViewModel.numberOnUisBand,
+              ),
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Date/Time Attached",
+                controller: singleFormViewModel.dateTimeAttached,
+              ),
+              SizedBox(height: 35.h),
+              Text(
+                "Name of Person Securing the UIS on the Deceased"
+                "\n(Place the Bracelet on the ankle of the deceased)",
+                style: FontTextStyle.k00000016W400,
+              ),
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Printed",
+                controller: singleFormViewModel.printedForm1,
+              ),
+              SizedBox(height: 14.h),
+              CommonTextFormField(
+                keyboardType: TextInputType.name,
+                hintText: "Signature",
+                controller: singleFormViewModel.signatureForm1,
+                suffixIcon: ESign.elevatedButtonSmall(
+                  () {
+                    ESign.generalDialog();
+                  },
+                  "Esign",
                 ),
-              );
-            },
+              ),
+              SizedBox(height: 84.h),
+              Align(
+                alignment: Alignment.centerRight,
+                child: CommonElevatedSmallButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      FormControllers.nextPage();
+                    }
+                  },
+                  text: "Next",
+                ),
+              ),
+              SizedBox(height: 34.h),
+            ],
           ),
-          SizedBox(height: 14.h),
-          CommonTextFormField(
-            keyboardType: TextInputType.name,
-            hintText: "Place of Death",
-            controller: Controller.placeOfDeathForm1,
-          ),
-          SizedBox(height: 14.h),
-          CommonTextFormField(
-            keyboardType: TextInputType.name,
-            hintText: "Number on the UIS Bracelet",
-            controller: Controller.numberOnTheUISBraceletForm1,
-          ),
-          SizedBox(height: 14.h),
-          CommonTextFormField(
-            keyboardType: TextInputType.name,
-            hintText: "Date/Time Attached",
-            controller: Controller.dateTimeAttachedForm1,
-          ),
-          SizedBox(height: 35.h),
-          Text(
-            "Name of Person Securing the UIS on the Deceased"
-            "\n(Place the Bracelet on the ankle of the deceased)",
-            style: FontTextStyle.k00000016W400,
-          ),
-          SizedBox(height: 14.h),
-          CommonTextFormField(
-            keyboardType: TextInputType.name,
-            hintText: "Printed",
-            controller: Controller.printedForm1,
-          ),
-          SizedBox(height: 14.h),
-          CommonTextFormField(
-            keyboardType: TextInputType.name,
-            hintText: "Signature",
-            controller: Controller.signatureForm1,
-          ),
-          SizedBox(height: 84.h),
-          Align(
-            alignment: Alignment.centerRight,
-            child: CommonElevatedSmallButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  FormControllers.nextPage();
-                }
-              },
-              text: "Next",
-            ),
-          ),
-          SizedBox(height: 34.h),
-        ],
-      ),
+        );
+      },
     );
   }
 }
