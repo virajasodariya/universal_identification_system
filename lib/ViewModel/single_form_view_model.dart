@@ -18,11 +18,13 @@ class SingleFormViewModel extends GetxController {
 
   TextEditingController deceasedName = TextEditingController();
   TextEditingController dateOfDeath = TextEditingController();
+  TextEditingController selectCountry = TextEditingController();
+  TextEditingController selectState = TextEditingController();
   TextEditingController placeOfDeath = TextEditingController();
-  TextEditingController numberOnUisBand = TextEditingController();
   TextEditingController dateTimeAttached = TextEditingController();
-  TextEditingController printedForm1 = TextEditingController();
-  TextEditingController signatureForm1 = TextEditingController();
+  TextEditingController enterMobileNumber = TextEditingController();
+  TextEditingController takePictureOfNumberOnBand = TextEditingController();
+  TextEditingController signature = TextEditingController();
 
   /// form 2
 
@@ -67,60 +69,61 @@ class SingleFormViewModel extends GetxController {
 
       _apiResponseSingleForm = ApiResponse.complete(response);
 
-      ///form 1
-
-      deceasedName.text = response.data.deceasedName;
-      dateOfDeath.text = response.data.dateOfDeath.toString();
-      placeOfDeath.text = response.data.placeOfDeath;
-      numberOnUisBand.text = "100";
-      dateTimeAttached.text = response.data.dateTimeAttached.toString();
-      printedForm1.text = "100";
-      signatureForm1.text = "100";
-
-      /// form 2
-
-      funeralPrintedForm2 = TextEditingController(text: "100");
-      nameFuneralDirectorOtherRepresentativeTakingCustodyEsign =
-          TextEditingController(
-              text: response.data
-                  .nameFuneralDirectorOtherRepresentativeTakingCustodyEsign);
-      nameFuneralDirectorOtherRepresentativeTakingCustodyDt =
-          TextEditingController(
-              text: response
-                  .data.nameFuneralDirectorOtherRepresentativeTakingCustodyDt
-                  .toString());
-      crematoryPrintedForm2 = TextEditingController(text: "100");
-      nameCrematoryCemeteryRepresentativeCustodyDeceasedEsign =
-          TextEditingController(
-              text: response.data
-                  .nameCrematoryCemeteryRepresentativeCustodyDeceasedEsign);
-      nameCrematoryCemeteryRepresentativeCustodyDeceasedDt =
-          TextEditingController(
-              text: response
-                  .data.nameCrematoryCemeteryRepresentativeCustodyDeceasedDt
-                  .toString());
-
-      /// form 3
-
-      printedReceiveForm3 = TextEditingController(text: "100");
-      nameOfPersonEntitledToReceiveCrematedRemainsRelationship =
-          TextEditingController(
-              text: response.data
-                  .nameOfPersonEntitledToReceiveCrematedRemainsRelationship);
-      nameOfPersonEntitledToReceiveCrematedRemainsEsign = TextEditingController(
-          text:
-              response.data.nameOfPersonEntitledToReceiveCrematedRemainsEsign);
-      nameOfPersonEntitledToReceiveCrematedRemainsDt = TextEditingController(
-          text: response.data.nameOfPersonEntitledToReceiveCrematedRemainsDt
-              .toString());
-      printedReleasingForm3 = TextEditingController(text: "100");
-      nameOfPersonReleasingCrematedRemainsEsign = TextEditingController(
-          text: response.data.nameOfPersonReleasingCrematedRemainsEsign);
-      nameOfPersonReleasingCrematedRemainsDt = TextEditingController(
-          text:
-              response.data.nameOfPersonReleasingCrematedRemainsDt.toString());
-
       ///
+
+      // ///form 1
+      //
+      // deceasedName.text = response.data.deceasedName;
+      // dateOfDeath.text = response.data.dateOfDeath.toString();
+      // placeOfDeath.text = response.data.placeOfDeath;
+      // numberOnUisBand.text = "100";
+      // dateTimeAttached.text = response.data.dateTimeAttached.toString();
+      // printedForm1.text = "100";
+      // signatureForm1.text = "100";
+      //
+      // /// form 2
+      //
+      // funeralPrintedForm2 = TextEditingController(text: "100");
+      // nameFuneralDirectorOtherRepresentativeTakingCustodyEsign =
+      //     TextEditingController(
+      //         text: response.data
+      //             .nameFuneralDirectorOtherRepresentativeTakingCustodyEsign);
+      // nameFuneralDirectorOtherRepresentativeTakingCustodyDt =
+      //     TextEditingController(
+      //         text: response
+      //             .data.nameFuneralDirectorOtherRepresentativeTakingCustodyDt
+      //             .toString());
+      // crematoryPrintedForm2 = TextEditingController(text: "100");
+      // nameCrematoryCemeteryRepresentativeCustodyDeceasedEsign =
+      //     TextEditingController(
+      //         text: response.data
+      //             .nameCrematoryCemeteryRepresentativeCustodyDeceasedEsign);
+      // nameCrematoryCemeteryRepresentativeCustodyDeceasedDt =
+      //     TextEditingController(
+      //         text: response
+      //             .data.nameCrematoryCemeteryRepresentativeCustodyDeceasedDt
+      //             .toString());
+      //
+      // /// form 3
+      //
+      // printedReceiveForm3 = TextEditingController(text: "100");
+      // nameOfPersonEntitledToReceiveCrematedRemainsRelationship =
+      //     TextEditingController(
+      //         text: response.data
+      //             .nameOfPersonEntitledToReceiveCrematedRemainsRelationship);
+      // nameOfPersonEntitledToReceiveCrematedRemainsEsign = TextEditingController(
+      //     text:
+      //         response.data.nameOfPersonEntitledToReceiveCrematedRemainsEsign);
+      // nameOfPersonEntitledToReceiveCrematedRemainsDt = TextEditingController(
+      //     text: response.data.nameOfPersonEntitledToReceiveCrematedRemainsDt
+      //         .toString());
+      // printedReleasingForm3 = TextEditingController(text: "100");
+      // nameOfPersonReleasingCrematedRemainsEsign = TextEditingController(
+      //     text: response.data.nameOfPersonReleasingCrematedRemainsEsign);
+      // nameOfPersonReleasingCrematedRemainsDt = TextEditingController(
+      //     text:
+      //         response.data.nameOfPersonReleasingCrematedRemainsDt.toString());
+
       ///
 
       log('singleFormResponseModel----response---->>>>>>$response');

@@ -6,4 +6,7 @@ class BaseService {
 
   static const String allFormsUrl = '$baseUrl/forms';
   static const String singleFormUrl = '$baseUrl/forms/single';
+
+  static const String countriesUrl = '$baseUrl/countries';
+  static const String statesUrl = '$baseUrl/states';
 }

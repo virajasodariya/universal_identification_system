@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 19.h),
                 CommonTextFormField(
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.visiblePassword,
                   hintText: "Enter your password",
                   controller: loginViewModel.passwordLogin,
                 ),

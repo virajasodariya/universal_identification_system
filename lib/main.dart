@@ -25,10 +25,6 @@ class MyApp extends StatelessWidget {
             fontFamily: "Poly",
           ),
           debugShowCheckedModeBanner: false,
-
-          /// email :- amangupta2404@gmail.com
-          /// password :- 123456789
-
           home: const SplashScreen(),
         );
       },
