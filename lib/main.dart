@@ -18,6 +18,10 @@ class MyApp extends StatelessWidget {
       designSize: const Size(428, 926),
       minTextAdapt: true,
       splitScreenMode: true,
+
+      /// minTextAdapt: true,
+      /// useInheritedMediaQuery: true,
+
       builder: (context, child) {
         return GetMaterialApp(
           title: 'UIS',

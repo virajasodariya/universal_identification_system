@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
-import 'api_execption.dart';
+import 'api_exception.dart';
 
 enum APIType { aGet, aPost, aImageForm, aPut, aPatch, aDelete }
 
